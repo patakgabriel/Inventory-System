@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="340.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <StackPane prefHeight="150.0" prefWidth="200.0">
+            <children>
+                <Label text="Modify Product" translateX="-75.0">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font></Label>
+            </children>
+        </StackPane>
+        <StackPane prefHeight="93.0" prefWidth="273.0" GridPane.rowIndex="1">
+            <children>
+                <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="ID" translateX="-100.0" translateY="-125.0" />
+                <Label text="Name" translateX="-100.0" translateY="-90.0" />
+                <Label text="Stock" translateX="-100.0" translateY="-55.0" />
+                <Label text="Price" translateX="-100.0" translateY="-20.0" />
+                <Label text="Max" translateY="15.0" />
+                <Label text="Min" translateX="-100.0" translateY="15.0" />
+                <TextField fx:id="id" disable="true" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="Auto Gen - Disabled" translateY="-125.0" />
+                <TextField fx:id="name" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" translateY="-90.0" />
+                <TextField fx:id="stock" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" translateY="-55.0" />
+                <TextField fx:id="price" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" translateY="-20.0" />
+                <TextField fx:id="min" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" translateX="-50.0" translateY="15.0" />
+                <TextField fx:id="max" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" translateX="50.0" translateY="15.0" />
+            </children></StackPane>
+        <StackPane prefHeight="113.0" prefWidth="284.0" GridPane.rowIndex="2" />
+        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+            <children>
+                <TextField fx:id="searchPart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#searchForPart" prefHeight="25.0" prefWidth="160.0" promptText="Search by Part ID or Name" translateX="70.0" />
+            </children>
+        </StackPane>
+        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <children>
+                <TableView fx:id="partTable" maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" translateY="-100.0">
+                    <columns>
+                        <TableColumn fx:id="partId" prefWidth="85.0" text="Part ID" />
+                        <TableColumn fx:id="partName" prefWidth="85.0" text="Part Name" />
+                        <TableColumn fx:id="partStock" prefWidth="85.0" text="Stock" />
+                        <TableColumn fx:id="partPrice" prefWidth="85.0" text="Price per Unit" />
+                    </columns>
+                </TableView>
+                <TableView fx:id="associatedTable" maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" translateY="75.0">
+                    <columns>
+                        <TableColumn fx:id="aPartId" prefWidth="85.0" text="Part ID" />
+                        <TableColumn fx:id="aPartName" prefWidth="85.0" text="Part Name" />
+                        <TableColumn fx:id="aPartStock" prefWidth="85.0" text="Stock" />
+                        <TableColumn fx:id="aPartPrice" prefWidth="85.0" text="Price per Unit" />
+                    </columns>
+                </TableView>
+                <Button fx:id="addB" mnemonicParsing="false" onAction="#addAssociatedPart" text="Add" translateX="100.0" translateY="-25.0" />
+            </children>
+        </StackPane>
+        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <children>
+                <Button mnemonicParsing="false" onAction="#removeAssociatedPart" text="Remove Associated Part" translateX="80.0" translateY="-25.0" />
+                <Button fx:id="cancelB" mnemonicParsing="false" onAction="#cancelModifyProduct" text="Cancel" translateX="125.0" translateY="10.0" />
+                <Button fx:id="saveB" mnemonicParsing="false" onAction="#saveButton" text="Save" translateX="28.0" translateY="10.0" />
+            </children></StackPane>
+    </children>
+</GridPane>
